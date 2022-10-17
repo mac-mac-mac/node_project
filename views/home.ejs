@@ -5,14 +5,23 @@
         Random XKCD Comic
     </title>
     <link href="/static/stylesheets/styles.css" type="text/css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen" rel="stylesheet">
 </head>
 
 <body>
     <div class="container">
-        <h2> Hello </h2>
-        <!-- <h2>
+        <h1>
+            Random XKCD Comic
+        </h1>
+        <h2>
             <%= comicData.safe_title %>
         </h2>
-        <img src="<%= comicData.img %>" alt="<%= comicData.alt %>" width="500px" height="500px"/> -->
+        <h3>
+            <%= comicData.month %> / <%= comicData.day %> / <%= comicData.year %>
+        </h3>
+        <img src="<%= comicData.img %>" alt="<%= comicData.alt %>"/>
+        <p>
+            <%= comicData.transcript %>
+        </p>
     </div>
 </body>

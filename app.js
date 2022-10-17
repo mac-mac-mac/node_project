@@ -5,14 +5,11 @@ var app = express();
 app.use('/static', express.static("public"));
 app.set("view engine", "ejs");
 
-let randNum = Math.floor(Math.random() * 2682) + 1;
-const url = 'https://xkcd.com/' + randNum + '/info.0.json';
-
 app.get('/', function(req, res){
-    console.log(url);
+    let randNum = Math.floor(Math.random() * 2682) + 1;
+    let url = 'https://xkcd.com/' + randNum + '/info.0.json';
     axios.get(url).then((response) => {
-        console.log(response.data)
-        //res.render('home.ejs')
+        res.render('home.ejs', {comicData: response.data})
     }).catch((error) => {
         res.json({"Error: ": error})
     })
